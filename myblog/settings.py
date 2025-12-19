@@ -31,7 +31,7 @@ else:
 DEBUG = not IS_RENDER  # 在Render上是False，在本地是True
 
 # 允许的主机：生产环境允许Render域名，开发环境允许本地访问
-ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = [*]
 # ==================== 环境判断结束 ====================
 
 # 禁止后台CSS影响前台页面
