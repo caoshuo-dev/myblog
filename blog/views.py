@@ -21,3 +21,27 @@ def post_detail(request, pk):  # pk 是接收来自URL的文章ID
 def about(request):
     """‘关于我’页面视图"""
     return render(request, 'blog/about.html')
+
+
+from django.http import HttpResponse
+from django.contrib.auth import get_user_model
+
+
+def create_admin_view(request):
+    # 简单密钥验证（防止他人访问）
+    if request.GET.get('key') != 'temp123':
+        return HttpResponse('未授权', status=403)
+
+    User = get_user_model()
+
+    # 删除已存在的admin用户（如果有）
+    User.objects.filter(username='admin').delete()
+
+    # 创建新用户
+    user = User.objects.create_superuser(
+        username='admin',
+        email='admin@example.com',
+        password='cs.040222'
+    )
+
+    return HttpResponse(f'✅ 用户创建成功！<br>用户名: {user.username}<br>密码: cs.040222')
