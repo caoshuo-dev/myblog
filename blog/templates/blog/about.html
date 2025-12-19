@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>about</title>
-    <link href="{% static 'blog/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     {% include 'blog/_navbar.html' %}
@@ -16,6 +16,6 @@
     <p>爱你老己,明天见~</p>
     <a href="{% url 'post_list' %}" class="btn btn-secondary">返回首页</a>
  <!-- 添加这一行：Bootstrap JS（让汉堡菜单工作） -->
-    <script src="{% static 'blog/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

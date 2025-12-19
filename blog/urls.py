@@ -7,4 +7,5 @@ urlpatterns = [
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('about/', views.about, name='about'),
     path('test/', views.test_view, name='test'),
+    path('check-admin/', views.check_admin, name='check_admin'),
 ]
