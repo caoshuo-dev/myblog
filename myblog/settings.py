@@ -64,6 +64,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'blog.middleware.StartupMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     # 'whitenoise.middleware.WhiteNoiseMiddleware',  # 新增：用于在Render上高效服务静态文件
