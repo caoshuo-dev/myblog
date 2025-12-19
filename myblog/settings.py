@@ -33,6 +33,22 @@ DEBUG = not IS_RENDER  # 在Render上是False，在本地是True
 ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1', '[::1]']
 # ==================== 环境判断结束 ====================
 
+# 禁止后台CSS影响前台页面
+class DisableAdminCSSMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        if not request.path.startswith('/admin/'):  # 非后台页面
+            if 'text/html' in response.get('Content-Type', ''):
+                content = response.content.decode()
+                # 移除后台CSS链接
+                import re
+                content = re.sub(r'<link[^>]+/static/admin/[^>]+>', '', content)
+                response.content = content.encode()
+        return response
+
 # Application definition
 INSTALLED_APPS = [
     #'jazzmin',
@@ -54,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'myblog.settings.DisableAdminCSSMiddleware',
 ]
 
 ROOT_URLCONF = 'myblog.urls'
