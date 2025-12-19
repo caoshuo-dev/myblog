@@ -76,17 +76,33 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
+# 判断是否在 Render 环境
+IS_RENDER = os.environ.get('RENDER') is not None
+
 if IS_RENDER:
-    # 生产环境：使用Render的PostgreSQL数据库
+    # Render 生产环境 - 简化可靠配置
     import dj_database_url
+
+    # 让 dj_database_url 自动处理（Render会自动提供DATABASE_URL）
     DATABASES = {
         'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
-            conn_max_age=600
+            conn_max_age=600,
+            ssl_require=True
         )
     }
+
+    # 如果自动配置失败（返回空字典），使用SQLite作为安全回退
+    if not DATABASES['default']:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'render_db.sqlite3',
+            }
+        }
+        print("警告：使用SQLite作为生产数据库回退方案")
 else:
-    # 开发环境：继续使用本地SQLite，方便快捷
+    # 开发环境：使用本地SQLite
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
