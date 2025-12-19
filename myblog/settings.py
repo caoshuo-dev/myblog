@@ -25,7 +25,15 @@ SECRET_KEY = 'django-insecure-by^p0%cf5h(y=p^1$x(q20ng0*u#t6yz3!!qju42%r56z5!_2w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+import os
+
+# 从环境变量读取，如果不存在则根据DEBUG模式设置
+ALLOWED_HOSTS_STR = os.environ.get('ALLOWED_HOSTS')
+if ALLOWED_HOSTS_STR:
+    ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS_STR.split(',')]
+else:
+    # 如果环境变量未设置，且是调试模式，则允许本地访问
+    ALLOWED_HOSTS = [] if DEBUG else ['.onrender.com']
 
 
 # Application definition
