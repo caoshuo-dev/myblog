@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Post  # 从当前目录的models.py中导入Post模型
 
@@ -40,3 +41,10 @@ def test_view(request):
     '''
     from django.http import HttpResponse
     return HttpResponse(html)
+
+
+def check_admin(request):
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+    users = User.objects.filter(username='admin')
+    return HttpResponse(f'admin用户存在: {users.exists()}')
