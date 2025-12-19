@@ -20,6 +20,12 @@
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title">{{ post.title }}</h5>
+                <p class="text-muted small mb-2">
+                 发布于：{{ post.created_time|date:"Y-m-d H:i" }}
+                 {% if post.category %}
+                 | 分类：{{ post.category.name }}
+                 {% endif %}
+                </p>
                 <p class="card-text">{{ post.content|truncatewords:30 }}</p>
                 <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">阅读全文</a>
             </div>
