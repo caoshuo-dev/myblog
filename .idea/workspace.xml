@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5ad635b8-2749-4bee-b1d6-96196b54a8f0" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/blog/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/blog/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/blog/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/blog/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myblog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myblog/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +30,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="36pqIjae3Or9uXnULUICZRxQNuV" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -82,7 +83,7 @@
       <workItem from="1765816042676" duration="2698000" />
       <workItem from="1765873060559" duration="7834000" />
       <workItem from="1766021433713" duration="2090000" />
-      <workItem from="1766138627287" duration="11623000" />
+      <workItem from="1766138627287" duration="18377000" />
     </task>
     <servers />
   </component>
