@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views  # 从当前目录导入views模块
-from .views import create_admin_view
 
 urlpatterns = [
     # 当用户访问 ‘blog/’ 这个路径时，调用 views.py 中的 post_list 函数来处理
