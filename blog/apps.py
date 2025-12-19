@@ -10,7 +10,7 @@ class BlogConfig(AppConfig):
         sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         try:
             from startup import create_initial_superuser  # 注意：去掉了前面的 '.'
-            #create_initial_superuser()
+            create_initial_superuser()
         except ImportError as e:
             print(f'[AppConfig Ready] 导入启动脚本失败: {e}')
         except Exception as e:
