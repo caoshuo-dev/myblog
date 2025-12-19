@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1', '[::1]']
 
 # Application definition
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -144,3 +145,14 @@ if not DEBUG:
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Jazzmin配置
+JAZZMIN_SETTINGS = {
+    "site_title": "博客管理后台",
+    "site_header": "我的博客管理系统",
+    "site_brand": "博客管理",
+    "welcome_sign": "欢迎登录博客管理后台",
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "theme": "darkly",  # 可选主题：darkly, flatly, slate等
+}
