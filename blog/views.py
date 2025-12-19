@@ -21,3 +21,22 @@ def post_detail(request, pk):  # pk 是接收来自URL的文章ID
 def about(request):
     """‘关于我’页面视图"""
     return render(request, 'blog/about.html')
+
+
+def test_view(request):
+    html = '''
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>测试</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1 class="text-danger bg-light p-3">红色标题</h1>
+        <button class="btn btn-primary">蓝色按钮</button>
+    </body>
+    </html>
+    '''
+    from django.http import HttpResponse
+    return HttpResponse(html)
